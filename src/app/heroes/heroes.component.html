@@ -1,6 +1,26 @@
-<h2>{{hero.name | uppercase}} Details</h2>
-<div><span>id: </span>{{hero.id}}</div>
 <div>
-  <label for="name">Hero name: </label>
-  <input id="name" [(ngModel)]="hero.name" placeholder="name">
+  <div class="row">
+    <div class="col">
+      <h2>My Heroes</h2>
+      <ul class="heroes">
+        <li *ngFor="let hero of heroes">
+          <!-- Quando o herói da linha atual é o mesmo que selectedHero, o Angular adiciona a selectedclasse CSS.
+            Quando os dois heróis são diferentes, Angular remove a classe. -->
+          <button type="button" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
+            <span class="badge">{{hero.id}}</span>
+            <span class="name">{{hero.name}}</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <!-- Vincule o HeroesComponent.selectedHeroà propriedade do elemento hero assim. -->
+      <app-hero-detail [hero]="selectedHero"> </app-hero-detail>
+    </div>
+  </div>
+
+
+
+
 </div>
