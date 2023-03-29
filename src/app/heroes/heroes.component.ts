@@ -8,17 +8,17 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./heroes.component.scss'],
 })
 export class HeroesComponent implements OnInit {
-  ngOnInit(): void {
-    console.log('Heroes' + this.selectedHero);
-  }
 
   heroes: Hero[] = [];
-
+// é do tipo Hero
   selectedHero?: Hero;
 
   constructor(private heroService: HeroService) {}
 
-  onInit() {}
+  ngOnInit() {
+    console.log('Heroes' + this.selectedHero);
+    this.getHeroes()
+  }
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
@@ -26,6 +26,8 @@ export class HeroesComponent implements OnInit {
   }
 
   getHeroes() {
-    this.heroes = this.heroService.getHeros();
+   this.heroService.getHeros().subscribe(
+      heroes => this.heroes=heroes
+    );
   }
 }
