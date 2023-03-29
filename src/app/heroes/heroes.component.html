@@ -1,6 +1,4 @@
-<div>
-  <div class="row">
-    <div class="col">
+
       <h2>My Heroes</h2>
       <ul class="heroes">
         <li *ngFor="let hero of heroes">
@@ -12,15 +10,12 @@
           </button>
         </li>
       </ul>
-    </div>
 
-    <div class="col">
       <!-- Vincule o HeroesComponent.selectedHeroà propriedade do elemento hero assim. -->
       <app-hero-detail [hero]="selectedHero"> </app-hero-detail>
-    </div>
-  </div>
 
 
 
 
-</div>
+
+
