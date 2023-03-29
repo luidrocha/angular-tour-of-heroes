@@ -18,10 +18,11 @@ export class HeroesComponent implements OnInit {
               private messageService:MessageService) {}
 
   ngOnInit() {
-    console.log('Heroes' + this.selectedHero);
+
     this.getHeroes()
   }
 
+// Não esta sendo usado mais devido a utilização de rotas
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
     this.messageService.addMessage(`HeroesComponent: Selected hero id:${hero.id}`);
